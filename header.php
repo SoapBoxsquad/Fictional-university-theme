@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 
-<html>
+<html <?php language_attributes(); ?>>
     <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="<?php bloginfo('charset')?>">
        <?php wp_head(); ?>
     </head>
 
-    <body>
+    <body <?php body_class(); ?>>
     <header class="site-header">
       <div class="container">
         <h1 class="school-logo-text float-left">
@@ -15,8 +17,14 @@
         <i class="site-header__menu-trigger fa fa-bars" aria-hidden="true"></i>
         <div class="site-header__menu group">
           <nav class="main-navigation">
+
+          <!-- <?php 
+            wp_nav_menu(array(
+              'theme_location' => 'headerMenuLocation'
+            ));
+          ?> -->
             <ul>
-              <li><a href="<?php echo site_url('/about-us') ?>">About Us</a></li>
+              <li <?php if(is_page('about-us') or wp_get_post_parent_id(0) == 14 ) echo 'class="current-menu-item" '?> ><a href="<?php echo site_url('/about-us') ?>">About Us</a></li>
               <li><a href="#">Programs</a></li>
               <li><a href="#">Events</a></li>
               <li><a href="#">Campuses</a></li>

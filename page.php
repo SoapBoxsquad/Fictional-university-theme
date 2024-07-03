@@ -1,3 +1,5 @@
+<!-- INDIVIDUAL PAGES -->
+
 <?php
 
 get_header();
